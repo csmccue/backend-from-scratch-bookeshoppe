@@ -47,11 +47,7 @@ describe('backend-express-template routes', () => {
 
   // test 5 show author detail with books!
   it('return author detail with input id with books', async () => {
-    const res = await request(app).get('/authors/1');
-    // const test = '{"id":"1","full_name":"JRR Tolkien","dob":"01-03-1892","pob":"South Africa","books":"[{\"id\":1,\"title\":\"The Fellowship of the Ring\",\"released\":\"1954\"},{\"id\":2,\"title\":\"The Two Towers\",\"released\":\"1954\"},{\"id\":3,\"title\":\"The Return of the King\",\"released\":\"1955\"}]"}';
-    // expect(res.body).toEqual(test);
-    // console.log(res.body);
-    // const test2 = JSON.parse(test);
+    const res = await request(app).get('/authors/2');
     expect(res.body).toEqual({
       id: expect.any(String),
       full_name: expect.any(String),
@@ -61,6 +57,16 @@ describe('backend-express-template routes', () => {
     });
   });
 
+  //test 6 shows book detail with authors!
+  it('return author detail with input id with books', async () => {
+    const res = await request(app).get('/books/1');
+    expect(res.body).toEqual({
+      id: expect.any(String),
+      title: expect.any(String),
+      released: expect.any(String),
+      authors: expect.any(Array),
+    });
+  });
 
   afterAll(() => {
     pool.end();
