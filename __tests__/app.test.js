@@ -34,7 +34,7 @@ describe('backend-express-template routes', () => {
   });
 
   // test 4 show author detail
-  it('return author detail with input id', async () => {
+  it.skip('return author detail with input id', async () => {
     const res = await request(app).get('/authors/2');
     const test = {
       id: '2',
@@ -53,7 +53,7 @@ describe('backend-express-template routes', () => {
       full_name: 'JRR Tolkien',
       dob: '01-03-1892',
       pob: 'South Africa',
-      books: '[{"id":4,"title":"It","released":"1986"},{"id":5,"title":"The Green Mile","released":"1996"},{"id":6,"title":"The Shining","released":"1977"}]'
+      books: '[{"id":1,"title":"The Fellowship of the Ring","released":"1954"},{"id":2,"title":"The Two Towers","released":"1954"},{"id":3,"title":"The Return of the King","released":"1955"}]'
     };
     expect(res.body).toEqual(test);
   });
