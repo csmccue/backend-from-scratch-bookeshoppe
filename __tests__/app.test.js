@@ -59,7 +59,7 @@ describe('backend-express-template routes', () => {
 
   //test 6 shows book detail with authors!
   it('return author detail with input id with books', async () => {
-    const res = await request(app).get('/books/1');
+    const res = await request(app).get('/books/2');
     expect(res.body).toEqual({
       id: expect.any(String),
       title: expect.any(String),
