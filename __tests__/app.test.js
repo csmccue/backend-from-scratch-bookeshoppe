@@ -11,7 +11,7 @@ describe('backend-express-template routes', () => {
 
 
   // test 1 show all books
-  it('return all books', async () => {
+  it.skip('return all books', async () => {
     const res = await request(app).get('/books');
     expect(res.body.length).toEqual(6);
   });
@@ -29,7 +29,7 @@ describe('backend-express-template routes', () => {
       id: 1,
       title: 'The Fellowship of the Ring',
       released: '1954'
-    }
+    };
     expect(res.body).toEqual(test);
   });
 
