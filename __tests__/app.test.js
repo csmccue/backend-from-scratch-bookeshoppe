@@ -16,6 +16,11 @@ describe('backend-express-template routes', () => {
     expect(res.body.length).toEqual(6);
   });
 
+  // test 2 show all authors
+  it('return all authors', async () => {
+    const res = await request(app).get('/authors');
+    expect(res.body.length).toEqual(2);
+  });
 
 
 
