@@ -44,7 +44,20 @@ describe('backend-express-template routes', () => {
     };
     expect(res.body).toEqual(test);
   });
-  
+
+  // test 5 show author detail with books!
+  it('return author detail with input id with books', async () => {
+    const res = await request(app).get('/authors/1');
+    const test = {
+      id: '1',
+      full_name: 'JRR Tolkien',
+      dob: '01-03-1892',
+      pob: 'South Africa',
+      books: '[{"id":4,"title":"It","released":"1986"},{"id":5,"title":"The Green Mile","released":"1996"},{"id":6,"title":"The Shining","released":"1977"}]'
+    };
+    expect(res.body).toEqual(test);
+  });
+
 
   afterAll(() => {
     pool.end();
