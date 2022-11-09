@@ -22,6 +22,16 @@ describe('backend-express-template routes', () => {
     expect(res.body.length).toEqual(2);
   });
 
+  // test 3 show book detail
+  it('return book detail with input id', async () => {
+    const res = await request(app).get('books/1');
+    const test = {
+      id: 1,
+      title: 'The Fellowship of the Ring',
+      released: '1954'
+    }
+    expect(res.body).toEqual(test);
+  });
 
 
 
