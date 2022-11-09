@@ -17,13 +17,13 @@ describe('backend-express-template routes', () => {
   });
 
   // test 2 show all authors
-  it.skip('return all authors', async () => {
+  it('return all authors', async () => {
     const res = await request(app).get('/authors');
     expect(res.body.length).toEqual(2);
   });
 
   // test 3 show book detail
-  it('return book detail with input id', async () => {
+  it.skip('return book detail with input id', async () => {
     const res = await request(app).get('/books/1');
     const test = {
       id: '1',
