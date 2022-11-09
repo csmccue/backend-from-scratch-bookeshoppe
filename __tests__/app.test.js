@@ -17,7 +17,7 @@ describe('backend-express-template routes', () => {
   });
 
   // test 2 show all authors
-  it('return all authors', async () => {
+  it.skip('return all authors', async () => {
     const res = await request(app).get('/authors');
     expect(res.body.length).toEqual(2);
   });
@@ -33,7 +33,18 @@ describe('backend-express-template routes', () => {
     expect(res.body).toEqual(test);
   });
 
-
+  // test 4 show author detail
+  it('return author detail with input id', async () => {
+    const res = await request(app).get('/authors/2');
+    const test = {
+      id: '2',
+      full_name: 'Steven King',
+      dob: '09-21-1947',
+      pob: 'Maine'
+    };
+    expect(res.body).toEqual(test);
+  });
+  
 
   afterAll(() => {
     pool.end();
